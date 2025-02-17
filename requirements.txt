@@ -2,7 +2,7 @@
 streamlit==1.31.1
 pandas==2.0.3
 beautifulsoup4==4.12.2
-openai==0.28.1  # Change to older version
+openai==1.5.0  # Change to this specific version
 python-dotenv==1.0.0
 requests==2.31.0
 xlsxwriter==3.1.9
