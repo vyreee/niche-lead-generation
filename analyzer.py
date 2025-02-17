@@ -1,12 +1,17 @@
 # analyzer.py
+import openai  # Change import style
 from typing import Dict
 import json
 import streamlit as st
-import openai  # Change the import style
 
 class EnhancedContentAnalyzer:
     def __init__(self, api_key: str):
-        self.client = openai.OpenAI(api_key=api_key)
+        if not api_key:
+            raise ValueError("Missing OPENAI_API_KEY")
+        self.client = openai.OpenAI(
+            api_key=api_key,
+            # Remove any proxy settings
+        )
 
     def analyze_content(self, website_data: Dict) -> Dict:
         """Analyze website content using GPT-3.5-turbo with cost optimization"""
