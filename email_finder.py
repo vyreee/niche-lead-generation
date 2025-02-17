@@ -1,7 +1,7 @@
 # email_finder.py
 import re
 from typing import List, Optional
-from openai import OpenAI
+import openai  # Change import style
 import streamlit as st
 from urllib.parse import urlparse
 import json
@@ -15,7 +15,10 @@ class EmailFinder:
             r'data-email=["\'][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}["\']',
             r'email:["\']?[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}["\']?'
         ]
-        self.client = OpenAI(api_key=api_key)
+        self.client = openai.OpenAI(
+            api_key=api_key,
+            # Remove any proxy settings
+        )
 
     def extract_emails_from_text(self, text: str) -> List[str]:
         """Extract emails using multiple regex patterns"""
