@@ -1,9 +1,13 @@
 # analyzer.py
-from openai import OpenAI
 from typing import Dict
 import json
 import streamlit as st
+import openai  # Change the import style
 
+class EnhancedContentAnalyzer:
+    def __init__(self, api_key: str):
+        self.client = openai.OpenAI(api_key=api_key)
+        
 class EnhancedContentAnalyzer:
     def __init__(self, api_key: str):
         if not api_key:
