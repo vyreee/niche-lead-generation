@@ -7,13 +7,6 @@ import openai  # Change the import style
 class EnhancedContentAnalyzer:
     def __init__(self, api_key: str):
         self.client = openai.OpenAI(api_key=api_key)
-        
-class EnhancedContentAnalyzer:
-    def __init__(self, api_key: str):
-        if not api_key:
-            raise ValueError("Missing OPENAI_API_KEY")
-        # Direct API key assignment during client creation
-        self.client = OpenAI(api_key=api_key)
 
     def analyze_content(self, website_data: Dict) -> Dict:
         """Analyze website content using GPT-3.5-turbo with cost optimization"""
